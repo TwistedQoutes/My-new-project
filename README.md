@@ -20,6 +20,10 @@ Built with Next.js (App Router, TypeScript), hosted on Vercel, data in Neon Post
 | Name | Phase | What it is |
 | --- | --- | --- |
 | `DASHBOARD_PASSWORD` | 1 | The password for the dashboard. At least 12 characters. Changing it logs out every device. |
+| `DATABASE_URL` | 2 | Added automatically when you connect Neon in Vercel → Storage. Tables are created automatically. |
+| `GOOGLE_CLIENT_ID` | 2 | From Google Cloud → Google Auth Platform → Clients (Web application). |
+| `GOOGLE_CLIENT_SECRET` | 2 | Shown next to the client ID. |
+| `APP_URL` | optional | Only if Google sign-in must use a fixed address, e.g. `https://inboxbouncer.vercel.app`. |
 
 Never commit secrets to this repo. They live only in Vercel.
 
@@ -28,4 +32,5 @@ Never commit secrets to this repo. They live only in Vercel.
 - `/login`: the only page you can see without logging in.
 - `/`: today's counts per bin and recently binned emails.
 - `/drafts`: AI reply drafts to review.
-- `/settings`: settings, plus a random-secret maker for filling in environment variables.
+- `/settings`: Gmail connection, the exact values to paste into Google Cloud, and a random-secret maker.
+- `/api/auth/google/start` and `/api/auth/google/callback`: the Connect Gmail sign-in flow.
